@@ -34,7 +34,9 @@ uint8_t rxindex = 0;
 uint8_t rxindex_2 = 0;
 uint8_t rx_data[8];
 uint8_t final_data[8];
-
+uint8_t len=0;
+char txdata[8];
+char txdatanew[8];
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -51,7 +53,14 @@ UART_HandleTypeDef huart1;
 DMA_HandleTypeDef hdma_usart1_rx;
 
 /* USER CODE BEGIN PV */
-
+void sendData(char *data) {
+	len = sizeof(txdata) / sizeof(txdata[0]);
+	for (int i = 0; i < len; i++) {
+		txdata[i] = data[i];
+	}
+	sprintf(txdatanew, "%s",txdata);
+	HAL_UART_Transmit(&huart1, txdatanew, 8, 500);
+}
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -70,18 +79,16 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 		if (rxindex >= 7) {
 			rxindex_2 = 0;
 		}
-
 		rxindex = rxindex_2;
 		rxBuf[rxindex] = Buf_1ch[0];
 		final_data[rxindex] = rxBuf[rxindex];
 		rxindex_2++;
-		HAL_UART_Receive_DMA(&huart1, Buf_1ch, 1); // dmayı tekrar kurduk yine alabilsin diye
+		HAL_UART_Receive_DMA(&huart1, Buf_1ch, 1);
 
 	}
 	else{
 
-		// USART BAgLANTISI YOKSA, SWİTCHLERLE MODE KONTROLU YAPILACABİLECEK
-		// USART BAgLANTISI VARSA SWİTCH İLE MODE KONTROLU DEVRE DısI OLACAK.
+
 	}
 }
 /* USER CODE END 0 */
@@ -117,7 +124,7 @@ int main(void)
   MX_DMA_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-	HAL_UART_Receive_DMA(&huart1, Buf_1ch, 1); // dmayı tekrar kurduk yine alabilsin diye
+	HAL_UART_Receive_DMA(&huart1, Buf_1ch, 1);
 	__HAL_DMA_DISABLE_IT(&hdma_usart1_rx, DMA_IT_HT);
   /* USER CODE END 2 */
 
