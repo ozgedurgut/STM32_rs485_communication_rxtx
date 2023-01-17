@@ -65,13 +65,12 @@ void sendData (uint8_t *data)
 	sprintf(data, "oz%d", indx++);
 	HAL_UART_Transmit(&huart1,data, strlen(data),1000);
 }
-/*
+
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
 	HAL_UARTEx_ReceiveToIdle_IT(&huart1, RxData, 16);
-
 }
-*/
+
 /* USER CODE END 0 */
 
 /**
@@ -114,9 +113,7 @@ int main(void)
 	while (1)
 	{
 		/* USER CODE END WHILE */
-
 		/* USER CODE BEGIN 3 */
-
 	    sendData(TxData);
 	    HAL_Delay(1000);
 	}

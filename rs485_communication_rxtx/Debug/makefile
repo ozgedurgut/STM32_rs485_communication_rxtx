@@ -60,8 +60,8 @@ all: main-build
 main-build: rs485_communication_rxtx.elf secondary-outputs
 
 # Tool invocations
-rs485_communication_rxtx.elf rs485_communication_rxtx.map: $(OBJS) $(USER_OBJS) C:\Users\KEOHDURGUT\Documents\GitHub\rs485_communication_rxtx\rs485_communication_rxtx\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "rs485_communication_rxtx.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\KEOHDURGUT\Documents\GitHub\rs485_communication_rxtx\rs485_communication_rxtx\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_communication_rxtx.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+rs485_communication_rxtx.elf rs485_communication_rxtx.map: $(OBJS) $(USER_OBJS) C:\Users\KEOHDURGUT\Documents\GitHub\STM32_rs485_communication_rxtx\rs485_communication_rxtx\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "rs485_communication_rxtx.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\KEOHDURGUT\Documents\GitHub\STM32_rs485_communication_rxtx\rs485_communication_rxtx\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="rs485_communication_rxtx.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
