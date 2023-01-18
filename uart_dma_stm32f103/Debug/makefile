@@ -60,8 +60,8 @@ all: main-build
 main-build: uart_dma_stm32f103.elf secondary-outputs
 
 # Tool invocations
-uart_dma_stm32f103.elf uart_dma_stm32f103.map: $(OBJS) $(USER_OBJS) C:\Users\KEOHDURGUT\STM32CubeIDE\workspace_1.10.0\uart_dma_stm32f103\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "uart_dma_stm32f103.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\KEOHDURGUT\STM32CubeIDE\workspace_1.10.0\uart_dma_stm32f103\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="uart_dma_stm32f103.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+uart_dma_stm32f103.elf uart_dma_stm32f103.map: $(OBJS) $(USER_OBJS) C:\Users\KEOHDURGUT\Documents\GitHub\STM32_rs485_communication_rxtx\uart_dma_stm32f103\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "uart_dma_stm32f103.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\KEOHDURGUT\Documents\GitHub\STM32_rs485_communication_rxtx\uart_dma_stm32f103\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="uart_dma_stm32f103.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

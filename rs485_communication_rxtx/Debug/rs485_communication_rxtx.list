@@ -39,11 +39,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_line   0000751a  00000000  00000000  0003ec8a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0008247b  00000000  00000000  000461a4  2**0
+ 18 .debug_str    0008242a  00000000  00000000  000461a4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000c861f  2**0
+ 19 .comment      00000050  00000000  00000000  000c85ce  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00001dac  00000000  00000000  000c8670  2**2
+ 20 .debug_frame  00001dac  00000000  00000000  000c8620  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -140,7 +140,6 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
  80001b2:	4904      	ldr	r1, [pc, #16]	; (80001c4 <HAL_UARTEx_RxEventCallback+0x20>)
  80001b4:	4804      	ldr	r0, [pc, #16]	; (80001c8 <HAL_UARTEx_RxEventCallback+0x24>)
  80001b6:	f001 fa90 	bl	80016da <HAL_UARTEx_ReceiveToIdle_IT>
-
 }
  80001ba:	bf00      	nop
  80001bc:	3708      	adds	r7, #8
